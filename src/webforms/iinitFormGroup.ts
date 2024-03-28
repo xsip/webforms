@@ -7,7 +7,7 @@ export function initFormGroup<T extends object>(
 ): void {
   group.valueChangeListeners = []
   group.controls = {} as any
-  group.hasErrors = false;
+  group.hasErrors = false
   group.getValue = () => {
     const res: any = {}
     Object.keys(model).forEach(k => {
@@ -23,7 +23,7 @@ export function initFormGroup<T extends object>(
     Object.entries(group.controls).forEach(([key, entry]) => {
       ;(entry as FormControl<any>).setValue(value[key])
     })
-    group.validate();
+    group.validate()
   }
 
   group.disable = () => {
@@ -61,15 +61,15 @@ export function initFormGroup<T extends object>(
     return res
   }
   group.validate = () => {
-    group.hasErrors = false;
+    group.hasErrors = false
     Object.entries(group.controls).forEach(([, entry]) => {
       const el = entry as FormControl<any>
       el.errors = []
       el.validators.forEach(v => {
         const error = v(el.getValue())
-        if(error) {
+        if (error) {
           el.errors.push(error)
-          group.hasErrors = true;
+          group.hasErrors = true
         }
       })
     })

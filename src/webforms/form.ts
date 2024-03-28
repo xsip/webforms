@@ -17,7 +17,13 @@ export function FormGroup<T extends object>(
   Object.keys(model).forEach(property => {
     group.controls[property] = createFormControl<any>(property, container)
     initFormControl(group.controls[property], model[property])
-    initControlListeners(property, model, group, container, config.onChangesStrategy)
+    initControlListeners(
+      property,
+      model,
+      group,
+      container,
+      config.onChangesStrategy,
+    )
   })
   return group
 }

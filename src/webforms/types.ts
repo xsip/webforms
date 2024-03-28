@@ -25,7 +25,7 @@ export type FormGroupType<T> = {
   enable: () => void
   getErrorList: () => { [key in keyof T]: string[] }
   validate: () => void
-  hasErrors: boolean;
+  hasErrors: boolean
 }
 
 export type ValueListener = {

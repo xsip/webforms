@@ -1,5 +1,5 @@
-export function addDebounce<T>(func: T, timeout: number):T {
-  let timer: any;
+export function addDebounce<T>(func: T, timeout: number): T {
+  let timer: any
   return ((...args: any[]) => {
     clearTimeout(timer)
     timer = setTimeout(() => {
@@ -7,5 +7,5 @@ export function addDebounce<T>(func: T, timeout: number):T {
       // @ts-ignore
       func.apply(this, args)
     }, timeout)
-  }) as T;
+  }) as T
 }

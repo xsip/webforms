@@ -14,7 +14,7 @@ export function renderForm<T>(
   const fgModel: T & object = {} as T & object
   Object.keys(model).forEach(property => {
     const element = createFormField(property, model[property])
-    console.log(element);
+    console.log(element)
     container.appendChild(element)
     fgModel[property] = model[property].value ?? ''
   })
@@ -31,18 +31,17 @@ function createFormField(
   },
 ): HTMLDivElement {
   const containerElement = document.createElement('div') as HTMLDivElement
-  containerElement.classList.add(`${name}-container`);
+  containerElement.classList.add(`${name}-container`)
 
   const labelElement = document.createElement('label') as HTMLLabelElement
-  labelElement.setAttribute('for', name);
-  labelElement.innerText = model.label;
+  labelElement.setAttribute('for', name)
+  labelElement.innerText = model.label
 
   const inputElement = document.createElement('input') as HTMLInputElement
   inputElement.name = name
   inputElement.type = model.type
 
-
-  containerElement.appendChild(labelElement);
-  containerElement.appendChild(inputElement);
-  return containerElement;
+  containerElement.appendChild(labelElement)
+  containerElement.appendChild(inputElement)
+  return containerElement
 }
